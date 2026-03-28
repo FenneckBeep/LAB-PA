@@ -4,17 +4,24 @@
 #include <string>
 using namespace std;
 
-class PaginaWeb : public Publicacion{
+class PaginaWeb : public Publicacion {
 
-    private:
-        string url;
-        string contenidoExtraido;
+private:
+    string url;
+    string contenidoExtraido;
 
-    public:
-        PaginaWeb(string doi, string titulo, DTFecha fecha,
+public:
+    PaginaWeb(string doi, string titulo, DTFecha fecha,
               string url, string contenidoExtraido);
 
-        bool contienePalabra(string palabra) override;
+    //Destructor
+    ~PaginaWeb();
+
+    //Getters
+    string getUrl();
+    string getContenidoExtraido();
+
+    bool contienePalabra(string palabra) override;
 };
 
 #endif

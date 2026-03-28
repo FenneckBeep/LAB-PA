@@ -1,6 +1,14 @@
 #include "ArticuloRevista.h"
+#include <algorithm>
+#include <cctype>
 
-//Constructora
+// Algoritmo pa las mayusculas Mejorado
+string toLower(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
+}
+
+// Constructor
 ArticuloRevista::ArticuloRevista(string doi, string titulo, DTFecha fecha,
                                  string revista, string extracto)
     : Publicacion(doi, titulo, fecha) {
@@ -9,11 +17,27 @@ ArticuloRevista::ArticuloRevista(string doi, string titulo, DTFecha fecha,
     this->extracto = extracto;
 }
 
-//Metodo
-bool ArticuloRevista::contienePalabra(string palabra) {
-    return extracto.find(palabra) != string::npos;
+// Destructor
+ArticuloRevista::~ArticuloRevista() {
 }
 
-// texto: La vida de un critico es sencilla en muchos aspectos
+// Getters
+string ArticuloRevista::getRevista() {
+    return revista;
+}
+
+string ArticuloRevista::getExtracto() {
+    return extracto;
+}
+
+// Metodo
+bool ArticuloRevista::contienePalabra(string palabra) {
+    string ext = toLower(extracto);
+    string pal = toLower(palabra);
+
+    return ext.find(pal) != string::npos;
+}
+
+//texto: La vida de un critico es sencilla en muchos aspectos
 //contienePalabra("vida") → true  
 //contienePalabra("hola") → false

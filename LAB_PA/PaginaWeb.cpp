@@ -1,6 +1,14 @@
 #include "PaginaWeb.h"
+#include <algorithm>
+#include <cctype>
 
-//Constructora
+// Algoritmo pa las mayusculas 
+string toLower(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
+}
+
+// Constructor
 PaginaWeb::PaginaWeb(string doi, string titulo, DTFecha fecha,
                      string url, string contenidoExtraido)
     : Publicacion(doi, titulo, fecha) {
@@ -9,7 +17,23 @@ PaginaWeb::PaginaWeb(string doi, string titulo, DTFecha fecha,
     this->contenidoExtraido = contenidoExtraido;
 }
 
-//Metodo
+// Destructor
+PaginaWeb::~PaginaWeb() {
+}
+
+// Getters
+string PaginaWeb::getUrl() {
+    return url;
+}
+
+string PaginaWeb::getContenidoExtraido() {
+    return contenidoExtraido;
+}
+
+// Metodo
 bool PaginaWeb::contienePalabra(string palabra) {
-    return contenidoExtraido.find(palabra) != string::npos;
+    string ext = toLower(contenidoExtraido); 
+    string pal = toLower(palabra);
+
+    return ext.find(pal) != string::npos;
 }
