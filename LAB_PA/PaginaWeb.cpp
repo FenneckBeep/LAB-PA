@@ -9,9 +9,9 @@ string toLower(string str) {
 }
 
 // Constructor
-PaginaWeb::PaginaWeb(string doi, string titulo, DTFecha fecha,
+PaginaWeb::PaginaWeb(string DOI, string titulo, DTFecha fecha,
                      string url, string contenidoExtraido)
-    : Publicacion(doi, titulo, fecha) {
+    : Publicacion(DOI, titulo, fecha) {
 
     this->url = url;
     this->contenidoExtraido = contenidoExtraido;
