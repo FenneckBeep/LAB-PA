@@ -11,7 +11,7 @@ private:
     string contenidoExtraido;
 
 public:
-    PaginaWeb(string doi, string titulo, DTFecha fecha,
+    PaginaWeb(string DOI, string titulo, DTFecha fecha,
               string url, string contenidoExtraido);
 
     //Destructor
