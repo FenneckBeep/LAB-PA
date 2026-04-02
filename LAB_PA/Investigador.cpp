@@ -1,6 +1,6 @@
 #include "Investigador.h"
 #include <string>
-#include "Publicacion.cpp"
+#include "Publicacion.h"
 #include "DTFecha.h"
 using namespace std;
 
@@ -27,19 +27,18 @@ set<string> Investigador::listarPublicaciones(DTFecha desde, string palabra){
      set<string> resultado; 
 
      for (Publicacion* p : publicaciones){
-
-          // arreglar la condicion de la fecha ya que gpt me dijo que esto puede fallar 
-          if ( desde.anio <= p->getFecha().anio &&
-               desde.mes <= p->getFecha().mes &&
-               desde.dia <= p->getFecha().dia){
-               
-               if(p->contienePalabra(palabra)){
-                    resultado.insert(p->getDOI());
-               }
-
-          }
+          if (p->getFecha().getAnio() < desde.getAnio()) // Si el año de la publicación es menor al buscado
+               continue;
+          if (p->getFecha().getAnio() == desde.getAnio())
+               if (p->getFecha().getMes() < desde.getMes()) // Si es el mismo año, pero el mes es menor al buscado
+                    continue;
+          if (p->getFecha().getAnio() == desde.getAnio())
+               if (p->getFecha().getMes() == desde.getMes())
+                    if (p->getFecha().getDia() < desde.getDia()) // Mismo año y mes pero el dia es menor al buscado
+                         continue;
+          if (p->contienePalabra(palabra))
+               resultado.insert(p->getDOI());
      }
-
      return resultado; 
 }
 

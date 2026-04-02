@@ -20,7 +20,7 @@ public:
 
     bool contienePalabra(string palabra);
 
-    string toString();
+    //string toString();
 };
 
 #endif 

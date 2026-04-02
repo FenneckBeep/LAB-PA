@@ -1,3 +1,4 @@
+#pragma once
 #include "DTFecha.h"
 #include <set>
 #include <string>
