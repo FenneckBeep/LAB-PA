@@ -9,9 +9,9 @@
 // }
 
 // Constructor
-ArticuloRevista::ArticuloRevista(string doi, string titulo, DTFecha fecha,
+ArticuloRevista::ArticuloRevista(string DOI, string titulo, DTFecha fecha,
                                  string revista, string extracto)
-    : Publicacion(doi, titulo, fecha) {
+    : Publicacion(DOI, titulo, fecha) {
 
     this->revista = revista;
     this->extracto = extracto;

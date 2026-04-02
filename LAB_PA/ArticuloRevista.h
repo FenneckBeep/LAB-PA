@@ -11,7 +11,7 @@ private:
     string extracto;
 
 public:
-    ArticuloRevista(string doi, string titulo, DTFecha fecha,
+    ArticuloRevista(string DOI, string titulo, DTFecha fecha,
                     string revista, string extracto);
 
     //Destructor
