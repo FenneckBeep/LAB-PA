@@ -14,14 +14,12 @@ void Publicacion::agregarAutor(Investigador* i) {
 }
 
 DTRefer Publicacion::getDT() {
-    DTRefer dt;
-
-    dt.DOI = this->DOI;
-    dt.titulo = this->titulo;
-    dt.fecha = this->fecha;
+    set<string> nombres;
 
     for (Investigador* i : autores)
-        dt.autores.insert(i->getNombre());
+        nombres.insert(i->getNombre());
+    
+    DTRefer dt = DTRefer(this->DOI, this->titulo, this->fecha, nombres);
 
     return dt;
 }
