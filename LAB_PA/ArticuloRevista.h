@@ -1,10 +1,10 @@
-#ifndef ARTICULOREVISTA_H //evita errores si el archivo se incluye varias veces
+#ifndef ARTICULOREVISTA_H
 #define ARTICULOREVISTA_H
 #include "Publicacion.h"
 #include <string>
 using namespace std;
 
-class ArticuloRevista : public Publicacion { //Indico: ArticuloRevista es una Publicacion
+class ArticuloRevista : public Publicacion {
 
 private:
     string revista;
@@ -14,16 +14,13 @@ public:
     ArticuloRevista(string DOI, string titulo, DTFecha fecha,
                     string revista, string extracto);
 
-    //Destructor
     ~ArticuloRevista();
 
-    //Getters
     string getRevista();
     string getExtracto();
 
-    //Método
+    //Metodo
     bool contienePalabra(string palabra) override;
-    // Ovrride reemplaza el metodo padre (Es pa mejor funcionamiento)
-}; 
+};
 
 #endif
